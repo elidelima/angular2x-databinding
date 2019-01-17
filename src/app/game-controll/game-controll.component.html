@@ -1,0 +1,26 @@
+<div class="container">
+<p>
+ Binding!
+</p>
+<button class="btn btn-primary" (click)="onStartGame()">Start</button>
+<button class="btn btn-danger" (click)="onStopGame()">Stop</button>
+
+<br><br>
+<div class="row">
+  <div class="col-xs-12">
+    <div *ngFor="let number of gameResults">
+      
+        <div *ngIf="number % 2 == 0; else isOdd">
+          <app-even [number]="number"></app-even>
+        </div>
+        
+        <ng-template #isOdd>
+          <app-odd [number]="number"></app-odd>
+        </ng-template>
+    </div>
+  </div>
+
+  
+</div>
+
+</div>
